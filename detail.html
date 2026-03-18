@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作品详情 - Canvas Gallery</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./favicon.webp" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <h1 class="logo">
+        <span class="logo-icon">◆</span>
+        <span>CANVAS GALLERY</span>
+        <span class="logo-icon">◆</span>
+      </h1>
+      <p class="tagline">屑冰火存稿件的地方</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="detail-container" id="detailContent">
+    <div class="detail-back">
+      <a id="backBtn" class="back-btn">
+        <span>←</span> 返回
+      </a>
+    </div>
+
+    <div class="detail-wrapper">      <!-- 左侧：图片区域 -->
+      <div class="detail-images">
+        <div class="main-image">
+          <img id="coverImage" src="" alt="作品封面" class="cover-img">
+        </div>
+        <div class="more-images" id="moreImagesContainer">
+          <!-- 动态加载的更多图片 -->
+        </div>
+      </div>
+
+      <!-- 右侧：信息区域 -->
+      <div class="detail-info">
+        <div class="info-header">
+          <h2 id="imageName" class="image-name">加载中...</h2>
+        </div>
+
+        <!-- 作者信息 -->
+        <div class="authors-section">
+          <h3 class="section-title">创作者</h3>
+          <div class="authors-list" id="authorsList">
+            <!-- 动态加载的作者信息 -->
+          </div>
+        </div>
+
+        <!-- 作品信息 -->
+        <div class="artwork-info">
+          <h3 class="section-title">作品信息</h3>
+          <div class="info-row" id="artworkInfoRow">
+            <!-- 动态加载：稿价、分类、创建日期 -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>Copyright &copy; 2026 IAFEnvoy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="detail.js"></script>
+</body>
+
+</html>

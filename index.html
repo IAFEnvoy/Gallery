@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>冰火的画廊</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./favicon.webp" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <h1 class="logo">
+        <span class="logo-icon">◆</span>
+        <span>CANVAS GALLERY</span>
+        <span class="logo-icon">◆</span>
+      </h1>
+      <p class="tagline">屑冰火存稿件的地方</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="gallery-container">
+    <!-- 上分页 -->
+    <div class="paginationTop">
+      <button id="prevBtnTop" class="pagination-btn">
+        <span>◀</span> 上一页
+      </button>
+      <div class="page-info">
+        <span>第 <span id="currentPageTop">1</span> 页</span>
+        <span class="divider">/</span>
+        <span>共 <span id="totalPagesTop">1</span> 页</span>
+      </div>
+      <button id="nextBtnTop" class="pagination-btn">
+        下一页 <span>▶</span>
+      </button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- 动态加载的图片卡片 -->
+    </div>
+
+    <!-- 下分页 -->
+    <div class="paginationBottom">
+      <button id="prevBtnBottom" class="pagination-btn">
+        <span>◀</span> 上一页
+      </button>
+      <div class="page-info">
+        <span>第 <span id="currentPageBottom">1</span> 页</span>
+        <span class="divider">/</span>
+        <span>共 <span id="totalPagesBottom">1</span> 页</span>
+      </div>
+      <button id="nextBtnBottom" class="pagination-btn">
+        下一页 <span>▶</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>Copyright &copy; 2026 IAFEnvoy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="list.js"></script>
+</body>
+
+</html>
