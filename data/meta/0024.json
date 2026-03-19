@@ -3,9 +3,16 @@
     "more": [
         "0024.webp"
     ],
-    "name": "",
+    "name": "赞助赠图",
     "authors": [
-        "城南"
+        {
+            "name": "SBY",
+            "role": "出钱"
+        },
+        {
+            "name": "城南",
+            "role": "渲染"
+        }
     ],
     "price": "无偿"
 }

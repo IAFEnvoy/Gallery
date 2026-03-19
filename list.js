@@ -17,14 +17,25 @@ class GalleryManager {
     this.currentPage = 1;
     this.itemsPerPage = 20;
     this.totalPages = 1;
+    this.debugMode = false;
 
     this.init();
   }
 
   async init() {
     await this.loadGalleryList();
+    this.initParams();
     this.setupEventListeners();
     this.render();
+  }
+
+  initParams() {
+    const params = new URLSearchParams(window.location.search);
+    // 获取当前页码（从URL query参数）
+    const pageParam = params.get('page');
+    if (pageParam) this.currentPage = Math.max(1, Math.min(+pageParam, this.totalPages));
+    // 调试Flag
+    if (params.get('debug') != null) this.debugMode = true
   }
 
   async loadGalleryList() {
@@ -40,13 +51,6 @@ class GalleryManager {
   }
 
   setupEventListeners() {
-    // 获取当前页码（从URL query参数）
-    const params = new URLSearchParams(window.location.search);
-    const pageParam = params.get('page');
-    if (pageParam) {
-      this.currentPage = Math.max(1, Math.min(parseInt(pageParam), this.totalPages));
-    }
-
     // 分页按钮
     document.getElementById('prevBtnTop').addEventListener('click', () => this.previousPage());
     document.getElementById('prevBtnBottom').addEventListener('click', () => this.previousPage());
@@ -104,14 +108,12 @@ class GalleryManager {
     card.innerHTML = `
             <img src="${coverUrl}" alt="${image.name}" class="card-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect fill=%22%231a1f3a%22 width=%22300%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%23a0a0c0%22 font-family=%22Arial%22%3E图片加载失败%3C/text%3E%3C/svg%3E'">
             <div class="card-info">
-                <div class="card-name">${image.name || '未命名作品'}</div>
+                <div class="card-name">${image.name || '未命名作品'}&nbsp;${this.debugMode ? `<span class="author-role-text">ID:${image.id}</span>` : ''}</div>
                 <div class="card-author">By ${authorName}</div>
             </div>
         `;
 
-    card.addEventListener('click', () => {
-      this.navigateToDetail(image.id);
-    });
+    card.addEventListener('click', () => this.navigateToDetail(image.id));
 
     return card;
   }

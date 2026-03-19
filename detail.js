@@ -151,7 +151,6 @@ class DetailManager {
     const card = document.createElement('div');
     card.className = 'author-card';
 
-    console.log(authorData)
     const cachedAuthorName = authorData instanceof Object ? authorData.name : authorData, role = authorData instanceof Object ? authorData.role : ''
     const authorInfo = this.authorsData[cachedAuthorName] || { name: cachedAuthorName };
     const contactsHtml = this.generateContactsHtml(authorInfo.social || {});
