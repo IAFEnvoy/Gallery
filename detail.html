@@ -7,6 +7,7 @@
   <title>作品详情 - Canvas Gallery</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="./favicon.webp" />
+  <script src="https://static.iafenvoy.com/loading-indicator.js"></script>
 </head>
 
 <body>
@@ -30,7 +31,10 @@
       </a>
     </div>
 
-    <div class="detail-wrapper">      <!-- 左侧：图片区域 -->
+    <div id="detailLoading" style="display: flex; justify-content: center; align-items: center; padding: 3rem;">
+      <loading-indicator></loading-indicator>
+    </div>
+    <div class="detail-wrapper" id="detailWrapper" style="display: none;"> <!-- 左侧：图片区域 -->
       <div class="detail-images">
         <div class="main-image">
           <img id="coverImage" src="" alt="作品封面" class="cover-img">

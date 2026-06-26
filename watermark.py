@@ -87,7 +87,7 @@ if __name__ == "__main__":
     # ===================== 配置参数 =====================
     INPUT_FOLDER = "./commission"    # 待处理图片文件夹
     WATERMARK_PATH = "./watermark.png" # 水印图片路径（建议用透明背景的png）
-    OUTPUT_FOLDER = "./output_webp"    # 输出文件夹
+    OUTPUT_FOLDER = "./data/images"    # 输出文件夹
     WATERMARK_OPACITY = 0.75            # 水印透明度（0.2=20%）
     MARGIN_PIXELS = 20                 # 水印到边缘的距离
     WEBP_QUALITY = 85                  # webp质量（越高文件越大）

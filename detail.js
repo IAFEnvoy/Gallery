@@ -51,6 +51,11 @@ class DetailManager {
         await Promise.all(authorPromises);
       }
       this.render();
+      // 隐藏 loading，显示内容
+      const loadingEl = document.getElementById('detailLoading');
+      if (loadingEl) loadingEl.style.display = 'none';
+      const wrapper = document.getElementById('detailWrapper');
+      if (wrapper) wrapper.style.display = '';
     } catch (e) {
       console.log(e)
     }

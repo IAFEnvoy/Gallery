@@ -7,6 +7,7 @@
   <title>冰火的画廊</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="./favicon.webp" />
+  <script src="https://static.iafenvoy.com/loading-indicator.js"></script>
 </head>
 
 <body>
@@ -40,7 +41,10 @@
     </div>
 
     <div class="gallery-grid" id="galleryGrid">
-      <!-- 动态加载的图片卡片 -->
+      <div style="grid-column: 1 / -1; display: flex; justify-content: center; align-items: center; padding: 3rem;"
+        id="loadingIndicator">
+        <loading-indicator></loading-indicator>
+      </div>
     </div>
 
     <!-- 下分页 -->

@@ -66,13 +66,21 @@ class GalleryManager {
 
   async render() {
     const gallery = document.getElementById('galleryGrid');
-    gallery.innerHTML = '';
+
+    // 先清空并显示加载动画
+    gallery.innerHTML = `<div style="grid-column: 1 / -1; display: flex; justify-content: center; align-items: center; padding: 3rem;" id="loadingIndicator">
+        <loading-indicator></loading-indicator>
+      </div>`;
 
     const pageImages = this.getPageImages();
 
     // 并行加载所有图片的元数据
     const imagePromises = pageImages.map(id => this.loadImageMetadata(id));
     const images = await Promise.all(imagePromises);
+
+    // 移除 loading 指示器
+    const loadingEl = document.getElementById('loadingIndicator');
+    if (loadingEl) loadingEl.remove();
 
     images.forEach(image => {
       if (image) {
@@ -155,6 +163,8 @@ class GalleryManager {
 
   showError(message) {
     const gallery = document.getElementById('galleryGrid');
+    const loadingEl = document.getElementById('loadingIndicator');
+    if (loadingEl) loadingEl.remove();
     gallery.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--text-secondary);">${message}</div>`;
   }
 }
